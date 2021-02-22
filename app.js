@@ -10,6 +10,8 @@ const recipeWrapper = document.getElementById('recipe-wrapper')
 
 //recipeWrapper.innerHTML = `<h1>${recipes.hits.recipe.label}</h1>`
 
+// Fetch title, img, cooking time, ingredients
+
 const recipes = 
 {
     "q": "chicken",
@@ -6891,4 +6893,38 @@ const recipes =
     ]
   }
 
-  recipeWrapper.innerHTML = `<h1>${recipes.hits[9].recipe.label}</h1>`
+
+// recipes.forEach((item) => {
+//     recipeWrapper.innerHTML = `
+//     <h1>${item.recipe.label}</h1>
+//     <img src="${item.recipe.image}"/>
+//     <p>${item.recipe.ingredientLines}</p>
+//     <p>${item.recipe.totalTime}min</p>
+//     `
+//   }) 
+
+  //APIs
+const recipesApi = ('https://api.edamam.com/search?q=chicken&app_id=03cb902c&app_key=2f60fc9619cfcd069d03e29e2509365f');
+
+//Fetch recipes
+const fetchRecipes = () => {
+  fetch(recipesApi)
+    .then((response) => {
+      return response.json();
+    })
+    .then((json) => {
+      console.log(json);
+
+    json.hits.forEach((item) => {
+      recipeWrapper.innerHTML = `
+    <h1>${item.recipe.label}</h1>
+    <img src="${item.recipe.image}"/>
+    <p>${item.recipe.ingredientLines}</p>
+    <p>${item.recipe.totalTime}min</p>
+    `
+    })
+   
+   });
+};
+// fetchRecipes();
+
