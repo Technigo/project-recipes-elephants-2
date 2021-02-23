@@ -13,7 +13,6 @@ const beefBtn = document.querySelector("#beef-button")
 const fishBtn = document.querySelector("#fish-button")
 const vegBtn = document.querySelector("#veg-button")
 
-
 let category = null;
 //Fetch Chicken Recipes from real API
   const fetchRecipes = (category) => {
@@ -28,22 +27,31 @@ let category = null;
   
       json.hits.forEach((item) => {
 
-        // const ingredientsList = item.recipe.ingredients.forEach((ing) => {
-        //   recipeWrapper.innerHTML +=`
-        //   <li>
-        //     ${ing.text}
-        //   </li>`
-        // })
+       
 
         
         recipeWrapper.innerHTML += `
         <div class="recipe-card"> 
           <h1 class="recipe-header">${item.recipe.label}</h1>
           <img class="recipe-image" src="${item.recipe.image}"/>
-          <p class="recipe-text">Cooking Time: ${item.recipe.totalTime}min</p>
           <p class="recipe-text">${item.recipe.ingredientLines}</p>
+            <div>
+              <ul></ul>
+            </div>
+          <p class="recipe-text">Cooking Time: ${item.recipe.totalTime}min</p>
           </div>`
+        
+       item.recipe.ingredients.forEach((ing) => {
+        const ul = document.querySelector("ul")
+  
+        ul.innerHTML +=`
+         
+            <li>
+              ${ing.text}
+            </li>
+         `
         })
+      })
         // <p class="recipe-text">${ingredientsList}</p>
 
           // item.recipe.ingredients.forEach((ing) => {
