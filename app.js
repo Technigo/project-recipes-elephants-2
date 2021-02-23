@@ -27,11 +27,11 @@ let category = null;
   
       json.hits.forEach((item) => {
         recipeWrapper.innerHTML += `
-        <div> 
-          <h1>${item.recipe.label}</h1>
-          <img src="${item.recipe.image}"/>
-          <p>${item.recipe.ingredientLines}</p>
-          <p>${item.recipe.totalTime}min</p>
+        <div class="recipe-card"> 
+          <h1 class="recipe-header">${item.recipe.label}</h1>
+          <img class="recipe-image" src="${item.recipe.image}"/>
+          <p> class="recipe-text">${item.recipe.ingredientLines}</p>
+          <p class="recipe-text">${item.recipe.totalTime}min</p>
         </div>
       `
       })
@@ -43,15 +43,19 @@ let category = null;
 // Switch between onClick category choices which recipes to display 
 
 chickenBtn.addEventListener("click", () => {
+  recipeWrapper.innerHTML = "";
   fetchRecipes(chickenRecipesApi);
 })
 beefBtn.addEventListener("click", () => {
+  recipeWrapper.innerHTML = "";
   fetchRecipes(beefRecipesApi);
 })
 fishBtn.addEventListener("click", () => {
+  recipeWrapper.innerHTML = "";
   fetchRecipes(fishRecipesApi);
 })
 vegBtn.addEventListener("click", () => {
+  recipeWrapper.innerHTML = "";
   fetchRecipes(vegRecipesApi);
 })
 
