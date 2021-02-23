@@ -24,16 +24,26 @@ let category = null;
       })
       .then((json) => {
         console.log(json);
+      
+    
   
       json.hits.forEach((item) => {
         recipeWrapper.innerHTML += `
         <div class="recipe-card"> 
           <h1 class="recipe-header">${item.recipe.label}</h1>
           <img class="recipe-image" src="${item.recipe.image}"/>
-          <p> class="recipe-text">${item.recipe.ingredientLines}</p>
-          <p class="recipe-text">${item.recipe.totalTime}min</p>
-        </div>
-      `
+          <p class="recipe-text">${item.recipe.totalTime}min</p>`
+          item.recipe.ingredients.forEach((ing) => {
+            recipeWrapper.innerHTML +=`
+            <li>
+              ${ing.text}
+            </li>
+            </div>
+            `
+          })
+          //<p class="recipe-text">${item.recipe.ingredientLines}</p>
+        
+      
       })
      
      });
