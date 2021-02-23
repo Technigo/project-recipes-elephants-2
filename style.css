@@ -1,3 +1,17 @@
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.logo-uber {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+}
+
+.logo-eats {
+  font-family: "Poppins", sans-serif;
+  font-weight: 500;
+  color: #00e68a;
+}
 
 .icon-menu {
   display: flex;
@@ -6,26 +20,24 @@
   align-items: center;
 }
 .food-button {
-    width: 100px;
-    height: 100px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    align-items: center;
-    background-color: white;
-    border: none;
-    outline: none;
-    
-    
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  background-color: white;
+  border: none;
+  outline: none;
 }
 
 .food-button-image-container {
- width: 50px;
- height:50px;
- border-radius: 50%;
- display: flex;
- justify-content: center;
- align-items: center;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .food-button-image-container:hover {
@@ -34,13 +46,15 @@
 
 .food-button-image {
   object-fit: contain;
-  position: relative ;
+  position: relative;
   height: 70%;
-  
 }
 
 .food-button-text {
   margin: 5px 0;
-  font-family: 'Roboto', sans-serif;
   font-weight: Medium 500;
+}
+
+.footer {
+  font-size: 12px;
 }
