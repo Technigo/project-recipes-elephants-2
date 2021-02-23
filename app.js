@@ -7,6 +7,11 @@ const recipeWrapper = document.getElementById('recipe-wrapper')
   const fishRecipesApi = ('https://api.edamam.com/search?q=fish&app_id=03cb902c&app_key=2f60fc9619cfcd069d03e29e2509365f');
   const vegRecipesApi = ('https://api.edamam.com/search?q=vegetarian&app_id=03cb902c&app_key=2f60fc9619cfcd069d03e29e2509365f');
 
+// Buttons 
+const chickenBtn = document.querySelector("#chicken-button")
+const beefBtn = document.querySelector("#beef-btn")
+const fishBtn = document.querySelector("#fish-btn")
+const vegBtn = document.querySelector("#veg-btn")
 
 // Store Json Data in variable
 // let jsondata;   
@@ -29,10 +34,10 @@ const recipeWrapper = document.getElementById('recipe-wrapper')
 //       )
 //     })
 
-
+let category = null;
 //Fetch Chicken Recipes from real API
   const fetchChickenRecipes = () => {
-    fetch(chickenRecipesApi)
+    fetch(category)
       .then((response) => {
         return response.json();
       })
@@ -41,15 +46,26 @@ const recipeWrapper = document.getElementById('recipe-wrapper')
   
       json.hits.forEach((item) => {
         recipeWrapper.innerHTML += `
-      <h1>${item.recipe.label}</h1>
-      <img src="${item.recipe.image}"/>
-      <p>${item.recipe.ingredientLines}</p>
-      <p>${item.recipe.totalTime}min</p>
+        <div> 
+          <h1>${item.recipe.label}</h1>
+          <img src="${item.recipe.image}"/>
+          <p>${item.recipe.ingredientLines}</p>
+          <p>${item.recipe.totalTime}min</p>
+        </div>
       `
       })
      
      });
   };
-//   fetchChickenRecipes();
+  fetchChickenRecipes();
 
 // Switch between onClick category choices which recipes to display 
+
+chickenBtn.addEventListener("click", () => {
+  category = chickenRecipesApi;
+})
+beefBtn.addEventListener("click", () => {
+  category = beefRecipesApi;
+})
+
+
